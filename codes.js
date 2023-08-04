@@ -1,7 +1,4 @@
-// Work through the following problems in Javascript (you have seen these problems before). Create a new file for your code. When you have finished with each function, leave a code comment with what you believe the runtime of your code to be.
 
-// 1) Sum Zero
-// Write a function that takes in an array of numbers. The function should return True if any two numberss in list sum to 0, and false otherwise.
 function addToZero(arr){
     let result = false;
     for (let i =0; i<arr.length;i++){
@@ -13,47 +10,22 @@ function addToZero(arr){
     }
     return result;
 }
-
-// For example:
-
-// console.log(addToZero([]));
-// // // -> False
-
-// console.log(addToZero([1]));
-// // // -> False
-
-// console.log(addToZero([1, 2, 3]));
-// // // -> False
-
-// console.log(addToZero([1, 2, 3, -2]));
-// // -> True
-// 2) Unique Characters
-// Write a function that takes in a single word, as a string. It should return True if that word contains only unique characters. Return False otherwise.
+//Depending on how many numbers are in the array but the append function would probably take about 5 μs per element and the Insert function would take 40 μs + 1 or 2 μs per element.
 
 function hasUniqueChars(str){
     let arr=str.toLowerCase().split("");
     while(arr.length>0){
         let temp=arr.splice(0,1)
-        // console.log(arr)
         if(arr.includes(temp[0])){
             return false;
         }
     }
     return true;
-    // console.log(arr)
 }
 
-// For example:
+//Append would take 10+ μs and insert would take 80+ μs. It also depends on whether or not a non-unique character has been found. If so, it will exit the function prematurely and quicken the run time.
 
-// console.log(hasUniqueChars("Monday"));
-// // // -> True
 
-// console.log(hasUniqueChars("Moonday"));
-// // // -> False
-// 3) Pangram Sentence
-// A pangram is a sentence that contains all the letters of the English alphabet at least once, like “The quick brown fox jumps over the lazy dog.”
-
-// Write a function to check a sentence to see if it is a pangram or not.
 function isPangram(str){
     let myStr=str.toLowerCase().split(" ").join("").split("");
     let alpha=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
@@ -65,15 +37,7 @@ function isPangram(str){
     return true;
 }
 
-// For example:
-
-// console.log(isPangram("The quick brown fox jumps over the lazy dog!"));
-// // -> True
-
-// console.log(isPangram("I like cats, but not mice"));
-// // -> False
-// 4) Longest Word
-// Write a function, find_longest_word, that takes a list of words and returns the length of the longest one.
+//Append would take 15+ μs and insert would take 60+ μs. It would have to loop through the whole alphabet anyway so these times are pretty accurate.
 
 function findLongestWord(arr){
     let result = 0;
@@ -85,7 +49,5 @@ function findLongestWord(arr){
     return result;
 }
 
-// For example:
+//Append would take 12+ μs and insert would take 40+ μs. It would have to loop through the whole alphabet anyway so these times are pretty accurate.
 
-// console.log(findLongestWord(["hi", "hello"]));
-// // -> 5
